@@ -162,12 +162,12 @@ function App() {
           <a className="button ghost" href="#finance">Voir l’impact financier</a>
         </div>
         <div className="metrics" aria-label="Hermes financial operating metrics">
-          <div><strong>0</strong><span>congés payés à gérer</span></div>
-          <div><strong>0</strong><span>arrêt maladie imprévu</span></div>
-          <div><strong>24/7</strong><span>exécution continue</span></div>
-          <div><strong>-80%</strong><span>coût vs poste opérationnel*</span></div>
+          <div><strong>0</strong><span>congés payés</span></div>
+          <div><strong>0</strong><span>arrêt maladie</span></div>
+          <div><strong>24/7</strong><span>disponibilité</span></div>
+          <div><strong>×5</strong><span>moins cher qu’un CDI*</span></div>
         </div>
-        <p className="metric-note">*Estimation indicative selon périmètre, modèle, infra et niveau d’autonomie.</p>
+        <p className="metric-note">Comparaison basée sur un salaire brut de 60k€/an avec charges et absences.</p>
       </section>
 
       <section id="finance" className="section finance-section">
