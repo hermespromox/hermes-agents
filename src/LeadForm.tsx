@@ -19,7 +19,7 @@ export const LeadForm: React.FC = () => {
 
       if (res.ok) {
         setStatus('success')
-        setMessage('Demande envoyée. On te répond sous 24h.')
+        setMessage('Demande envoyée. Corrtex te répond sous 24h.')
         setFormData({ name: '', email: '', project: '', agent: '' })
       } else {
         throw new Error('Erreur serveur')

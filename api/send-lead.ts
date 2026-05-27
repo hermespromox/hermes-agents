@@ -29,13 +29,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     await resend.emails.send({
-      from: 'Hermes Agents <onboarding@resend.dev>',
+      from: 'Corrtex <onboarding@resend.dev>',
       to: ['hermes.promox@gmail.com'],
       replyTo: email,
-      subject: `Nouvelle demande d'agent — ${name}`,
+      subject: `Nouvelle demande Corrtex — ${name}`,
       html: `
         <div style="font-family: system-ui, sans-serif; line-height: 1.6; max-width: 640px;">
-          <h2 style="margin: 0 0 24px;">Nouvelle demande d'agent IA</h2>
+          <h2 style="margin: 0 0 24px;">Nouvelle demande d'agent IA Corrtex</h2>
           <p><strong>Nom :</strong> ${safeName}</p>
           <p><strong>Email :</strong> ${safeEmail}</p>
           ${safeAgent ? `<p><strong>Agent souhaité :</strong> ${safeAgent}</p>` : ''}
@@ -44,7 +44,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             ${safeProject}
           </div>
           <p style="margin-top: 32px; color: #666; font-size: 13px;">
-            Reçu via hermes-agents-ten.vercel.app
+            Reçu via le site Corrtex
           </p>
         </div>
       `,
