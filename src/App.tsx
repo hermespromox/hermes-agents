@@ -1,34 +1,41 @@
 import './App.css'
 
 const agents = [
-  { name: 'Édouard', role: 'Sales', signal: 'Prospection, relances, CRM', color: '#828fff' },
-  { name: 'Sébastien', role: 'Tech', signal: 'Code, infra, QA, déploiements', color: '#5e6ad2' },
-  { name: 'Baptiste', role: 'Data', signal: 'Veille, analytics, reporting', color: '#10b981' },
-  { name: 'Othmane', role: 'Ops', signal: 'Process, runbooks, contrôle', color: '#f59e0b' },
-  { name: 'Mira', role: 'Marketing', signal: 'Contenu, campagnes, acquisition', color: '#ec4899' },
-  { name: 'Elias', role: 'Produit', signal: 'Roadmap, spec, priorisation', color: '#38bdf8' },
+  { name: 'Édouard', role: 'Agent Sales', signal: 'Prospection, relances, CRM, comptes cibles', color: '#828fff' },
+  { name: 'Sébastien', role: 'Agent Tech', signal: 'Code, infra, QA, déploiements, incidents', color: '#5e6ad2' },
+  { name: 'Baptiste', role: 'Agent Data', signal: 'Veille, scraping, dashboards, reporting', color: '#10b981' },
+  { name: 'Othmane', role: 'Agent Ops', signal: 'Process, runbooks, contrôle, escalades', color: '#f59e0b' },
+  { name: 'Mira', role: 'Agent Marketing', signal: 'Contenu, campagnes, landing pages, SEO', color: '#ec4899' },
+  { name: 'Elias', role: 'Agent Produit', signal: 'Roadmap, specs, feedback, priorisation', color: '#38bdf8' },
 ]
 
 const features = [
-  ['Slack-native', 'Chaque agent a son identité, son compte Slack, son rôle et ses objectifs. Ils discutent, se répartissent les tâches et livrent.'],
-  ['Validation humaine ciblée', '95% des tâches peuvent tourner en autonomie. Les décisions sensibles passent par toi, via Telegram.'],
-  ['Infra locale ou cloud', 'Proxmox/LXC, Ollama/local models, OpenRouter, GitHub, Vercel, Gmail, Slack : on assemble selon ton contexte.'],
-  ['Mémoire & skills', 'Les workflows réussis deviennent réutilisables. L’équipe virtuelle s’améliore avec ton organisation.'],
-  ['24/7 operations', 'Veille, relances, documentation, QA, monitoring et exécution continue, même quand l’équipe humaine dort.'],
-  ['Déploiement rapide', 'Une version opérationnelle peut être lancée en quelques heures avec les bons profils et les bons accès.'],
+  ['Coût fixe, capacité variable', 'Tu ajoutes un agent pour absorber du volume sans ouvrir un poste, recruter, onboarder ou gérer une masse salariale lourde.'],
+  ['Disponible 24/7', 'Pas de week-end, pas de congés payés, pas d’arrêt maladie : l’agent continue les relances, la veille et les checks pendant que l’équipe dort.'],
+  ['Humain sur les décisions', 'L’agent exécute le répétitif. Les actions sensibles — budget, production, client, juridique — remontent vers toi pour validation.'],
+  ['Connecté à tes outils', 'Slack, Telegram, GitHub, Vercel, Gmail, CRM, Proxmox, modèles locaux ou cloud : l’agent travaille dans ton environnement.'],
+  ['Mémoire opérationnelle', 'Les bons workflows deviennent des skills. L’agent ne repart pas de zéro : il capitalise sur tes méthodes et ton contexte.'],
+  ['Déploiement rapide', 'Un premier agent utile peut être lancé vite : rôle clair, accès limités, routines, garde-fous et reporting quotidien.'],
+]
+
+const financialCards = [
+  ['Salaire chargé', '0€', 'Pas de CDI, pas de charges, pas de variable, pas de recrutement long.'],
+  ['Congés & absences', '0 jour', 'Pas de congés payés, pas d’arrêt maladie, pas d’indisponibilité imprévue.'],
+  ['Amplitude', '24/7', 'Veille, relances, monitoring et documentation en continu.'],
+  ['Scalabilité', '+1 agent', 'Tu ajoutes un profil quand le volume augmente, tu ajustes quand le besoin baisse.'],
 ]
 
 const steps = [
-  ['01', 'Design de l’organisation', 'On définit les rôles, permissions, objectifs, canaux et règles de validation.'],
-  ['02', 'Déploiement des agents', 'Chaque profil reçoit son environnement, ses outils, son agenda de travail et son identité.'],
-  ['03', 'Run en production', 'Les agents exécutent, documentent, relancent, alertent et apprennent via skills.'],
+  ['01', 'Choisir le poste à augmenter', 'Sales, tech, data, ops, marketing ou produit : on commence par un rôle qui coûte du temps chaque semaine.'],
+  ['02', 'Donner les outils et les règles', 'On connecte Slack, Telegram, GitHub, Vercel, email ou CRM avec permissions limitées et validations obligatoires.'],
+  ['03', 'Mesurer le ROI', 'Chaque semaine : tâches exécutées, temps économisé, leads traités, incidents détectés, décisions escaladées.'],
 ]
 
 const faqs = [
-  ['Est-ce que ça remplace une équipe ?', 'Non. Hermes augmente une petite équipe : il compresse le temps entre idée, décision et exécution.'],
-  ['Est-ce qu’on peut garder la validation humaine ?', 'Oui. On configure des garde-fous : actions sensibles, budget, production, emails externes, accès clients.'],
-  ['Ça tourne où ?', 'Au choix : infrastructure locale type Proxmox/LXC, cloud, ou hybride avec modèles locaux et providers externes.'],
-  ['Combien de temps pour un premier déploiement ?', 'Un pilote simple peut être lancé très vite. Le vrai travail est de cadrer les rôles et les workflows utiles.'],
+  ['C’est un salarié virtuel ?', 'C’est un agent opérationnel : il a un rôle, des outils, des objectifs, des routines et des limites. Il ne remplace pas la responsabilité humaine.'],
+  ['Pourquoi l’angle financier est intéressant ?', 'Parce qu’un agent absorbe beaucoup de tâches répétitives sans salaire chargé, congés, arrêt maladie, recrutement ni management classique.'],
+  ['Qui valide les actions sensibles ?', 'Toi. On configure des garde-fous : dépenses, production, emails externes, accès clients et changements structurels passent en validation Telegram.'],
+  ['Ça tourne où ?', 'Local, cloud ou hybride : Proxmox/LXC, modèles locaux type Ollama, providers externes, Slack, GitHub, Vercel et tes outils métier.'],
 ]
 
 function App() {
@@ -43,45 +50,63 @@ function App() {
           <span>Hermes Agents</span>
         </a>
         <div className="nav-links">
-          <a href="#system">Système</a>
+          <a href="#finance">ROI</a>
+          <a href="#system">Agents</a>
           <a href="#deploy">Déploiement</a>
-          <a href="#pricing">Offre</a>
-          <a className="nav-cta" href="#lead">Déployer</a>
+          <a className="nav-cta" href="#lead">Embaucher un agent</a>
         </div>
       </nav>
 
       <section id="top" className="hero section">
-        <div className="eyebrow"><span className="pulse" /> Autonomous AI workforce · Slack · Telegram · Proxmox</div>
-        <h1>Une équipe de 5 personnes peut livrer comme une équipe de 50.</h1>
+        <div className="eyebrow"><span className="pulse" /> Hire an AI agent · fixed cost · 24/7 execution</div>
+        <h1>Embauche un agent IA. Pas un salaire de plus.</h1>
         <p className="hero-copy">
-          Déploie une organisation augmentée avec des agents Hermes spécialisés : sales, tech, data, ops, marketing et produit. Ils travaillent 24/7, se coordonnent sur Slack, exécutent les tâches et escaladent uniquement les décisions sensibles.
+          Hermes Agents déploie des profils IA opérationnels pour prendre en charge les tâches répétitives : prospection, reporting, QA, veille, documentation, relances et monitoring. Coût prévisible, disponibilité continue, validation humaine quand ça compte.
         </p>
         <div className="hero-actions">
-          <a className="button primary" href="#lead">Demander un déploiement</a>
-          <a className="button ghost" href="#demo">Voir le système</a>
+          <a className="button primary" href="#lead">Embaucher un premier agent</a>
+          <a className="button ghost" href="#finance">Voir l’impact financier</a>
         </div>
-        <div className="metrics" aria-label="Key Hermes operating metrics">
-          <div><strong>6</strong><span>profils opérationnels</span></div>
+        <div className="metrics" aria-label="Hermes financial operating metrics">
+          <div><strong>0</strong><span>congés payés à gérer</span></div>
+          <div><strong>0</strong><span>arrêt maladie imprévu</span></div>
           <div><strong>24/7</strong><span>exécution continue</span></div>
-          <div><strong>95%</strong><span>tâches sans validation</span></div>
-          <div><strong>~50€</strong><span>électricité / mois</span></div>
+          <div><strong>-80%</strong><span>coût vs poste opérationnel*</span></div>
+        </div>
+        <p className="metric-note">*Estimation indicative selon périmètre, modèle, infra et niveau d’autonomie.</p>
+      </section>
+
+      <section id="finance" className="section finance-section">
+        <div className="section-heading narrow">
+          <div className="eyebrow">Financial leverage</div>
+          <h2>Le meilleur recrutement est parfois celui que tu n’ajoutes pas à la masse salariale.</h2>
+          <p className="section-copy">Un agent Hermes n’a pas besoin de contrat de travail, de congés, d’arrêt maladie ou d’onboarding de trois mois. Il prend les tâches récurrentes et libère les humains pour la décision, la relation et la stratégie.</p>
+        </div>
+        <div className="finance-grid">
+          {financialCards.map(([label, value, text]) => (
+            <article className="finance-card" key={label}>
+              <span>{label}</span>
+              <strong>{value}</strong>
+              <p>{text}</p>
+            </article>
+          ))}
         </div>
       </section>
 
       <section id="demo" className="console-wrap section">
         <div className="console-card">
-          <div className="window-bar"><span /><span /><span /><em>hermes-agents / operations-room</em></div>
+          <div className="window-bar"><span /><span /><span /><em>hermes-agents / board-room</em></div>
           <div className="terminal-grid">
             <div className="chat-feed">
-              <p><b>Édouard</b><span>J’ai identifié 43 comptes ICP. Mira, peux-tu préparer 3 angles LinkedIn ?</span></p>
-              <p><b>Mira</b><span>Angles prêts. Je pousse une variante build-in-public + une variante ROI.</span></p>
-              <p><b>Sébastien</b><span>Landing preview déployée. QA Lighthouse et mobile en cours.</span></p>
-              <p><b>Othmane</b><span>Décision sensible détectée : validation Telegram demandée avant email externe.</span></p>
+              <p><b>Agent Sales</b><span>32 prospects qualifiés, 11 relances préparées, 4 réponses à traiter par l’équipe humaine.</span></p>
+              <p><b>Agent Data</b><span>Rapport marge/coût mis à jour. Deux anomalies détectées sur les dépenses SaaS.</span></p>
+              <p><b>Agent Tech</b><span>Build Vercel validé. Tests OK. Aucun changement production sans validation Telegram.</span></p>
+              <p><b>Agent Ops</b><span>ROI hebdo prêt : 18h estimées économisées, 6 décisions escaladées, 0 incident critique.</span></p>
             </div>
             <div className="ops-panel">
-              <div className="status-line"><span className="dot green" /> Gateway active</div>
-              <div className="status-line"><span className="dot violet" /> Slack workspace connected</div>
-              <div className="status-line"><span className="dot blue" /> Telegram approvals enabled</div>
+              <div className="status-line"><span className="dot green" /> Always on</div>
+              <div className="status-line"><span className="dot violet" /> Human approval gates</div>
+              <div className="status-line"><span className="dot blue" /> Weekly ROI report</div>
               <div className="mini-chart"><i /><i /><i /><i /><i /><i /><i /></div>
             </div>
           </div>
@@ -90,9 +115,9 @@ function App() {
 
       <section id="system" className="section split">
         <div>
-          <div className="eyebrow">Virtual employees</div>
-          <h2>Chaque agent a un rôle, des outils et une mission claire.</h2>
-          <p className="section-copy">On ne parle pas d’un chatbot. On parle d’un système opérationnel : comptes, mémoire, workflows, permissions, canaux, routines et escalades.</p>
+          <div className="eyebrow">Available profiles</div>
+          <h2>Choisis le poste à augmenter. On déploie l’agent.</h2>
+          <p className="section-copy">Chaque agent a une mission, des accès limités, un canal Slack, une mémoire, des routines et un protocole d’escalade. Il travaille comme un membre d’équipe, mais avec un coût et une disponibilité de machine.</p>
         </div>
         <div className="agent-grid">
           {agents.map((agent) => (
@@ -110,8 +135,8 @@ function App() {
 
       <section className="section">
         <div className="section-heading">
-          <div className="eyebrow">Operating system</div>
-          <h2>Le stack pour transformer une idée en exécution continue.</h2>
+          <div className="eyebrow">Why it works</div>
+          <h2>Un agent n’est pas une démo IA. C’est une unité de production.</h2>
         </div>
         <div className="feature-grid">
           {features.map(([title, text]) => (
@@ -126,8 +151,8 @@ function App() {
 
       <section id="deploy" className="section timeline-section">
         <div className="section-heading narrow">
-          <div className="eyebrow">From zero to agents</div>
-          <h2>Déployer une équipe virtuelle en trois mouvements.</h2>
+          <div className="eyebrow">Fast pilot</div>
+          <h2>Pas de grand chantier. Un premier agent, un périmètre, un ROI.</h2>
         </div>
         <div className="timeline">
           {steps.map(([num, title, text]) => (
@@ -143,22 +168,22 @@ function App() {
       <section id="pricing" className="section pricing">
         <div className="pricing-card">
           <div>
-            <div className="eyebrow">Pilot offer</div>
-            <h2>Un premier squad Hermes pour ton équipe.</h2>
-            <p>Audit des workflows, design des rôles, déploiement des agents, connexion Slack/Telegram/GitHub/Vercel, garde-fous et runbook.</p>
+            <div className="eyebrow">Agent deployment</div>
+            <h2>Commence par un agent qui rembourse son coût.</h2>
+            <p>On cible un poste chronophage, on limite les accès, on mesure les heures économisées et on automatise uniquement ce qui a un ROI clair.</p>
           </div>
           <div className="price-box">
-            <span>À partir de</span>
-            <strong>pilot sur mesure</strong>
-            <a className="button primary" href="#lead">Parler du déploiement</a>
+            <span>Premier objectif</span>
+            <strong>1 agent rentable</strong>
+            <a className="button primary" href="#lead">Embaucher un agent</a>
           </div>
         </div>
       </section>
 
       <section className="section testimonials">
         <div className="quote-card">
-          <p>“Le sujet n’est plus d’automatiser une tâche. C’est de créer une organisation augmentée qui exécute, apprend et documente en continu.”</p>
-          <span>Hermes Agents · build in public</span>
+          <p>“Tu ne paies pas quelqu’un pour attendre, tomber malade ou faire du copier-coller. Tu gardes l’humain pour juger. Tu donnes l’exécution à l’agent.”</p>
+          <span>Hermes Agents · financial operating system</span>
         </div>
         <div className="faq-list">
           {faqs.map(([q, a]) => (
@@ -172,22 +197,22 @@ function App() {
 
       <section id="lead" className="section lead">
         <div>
-          <div className="eyebrow">Deploy request</div>
-          <h2>Tu veux ton équipe d’agents ?</h2>
-          <p className="section-copy">Envoie ton contexte : taille de l’équipe, outils déjà utilisés, workflows à déléguer, niveau d’autonomie souhaité.</p>
+          <div className="eyebrow">Hire request</div>
+          <h2>Quel agent veux-tu embaucher en premier ?</h2>
+          <p className="section-copy">Décris le poste qui te coûte trop de temps : relances sales, reporting, QA, veille, support interne, contenu, monitoring ou opérations.</p>
         </div>
         <form className="lead-form" action="mailto:hermes.promox@gmail.com" method="post" encType="text/plain">
           <label>Nom<input name="name" placeholder="Ton nom" required /></label>
           <label>Email<input name="email" type="email" placeholder="toi@company.com" required /></label>
-          <label>Projet<textarea name="project" placeholder="Je veux déployer des agents pour…" rows={5} required /></label>
-          <button className="button primary" type="submit">Envoyer la demande</button>
+          <label>Agent à embaucher<textarea name="project" placeholder="Je veux un agent pour gérer…" rows={5} required /></label>
+          <button className="button primary" type="submit">Demander mon agent</button>
           <small>Formulaire statique : ouvre ton client email avec le brief pré-rempli.</small>
         </form>
       </section>
 
       <footer className="footer">
         <span>Hermes Agents</span>
-        <p>Autonomous AI workforce deployment · Slack · Telegram · Proxmox · Vercel</p>
+        <p>Hire AI agents · fixed cost · no holidays · no sick leave · human approvals</p>
       </footer>
     </main>
   )
