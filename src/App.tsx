@@ -1,4 +1,98 @@
 import './App.css'
+import React from 'react'
+
+const RoiCalculator: React.FC = () => {
+  const [brut, setBrut] = React.useState(60000)
+  const [agentPrice, setAgentPrice] = React.useState(300)
+
+  const monthlyBrut = brut / 12
+  const chargesRate = 0.42
+  const monthlyWithCharges = monthlyBrut * (1 + chargesRate)
+  const annualWithCharges = monthlyWithCharges * 12
+
+  const sickDays = 8
+  const vacationDays = 35
+  const totalAbsenceDays = sickDays + vacationDays
+  const workingDays = 228
+  const absenceCost = (annualWithCharges / workingDays) * totalAbsenceDays
+
+  const humanAnnual = annualWithCharges + absenceCost
+  const humanMonthly = humanAnnual / 12
+
+  const agentAnnual = agentPrice * 12
+  const savingsAnnual = humanAnnual - agentAnnual
+  const savingsPercent = ((humanAnnual - agentAnnual) / humanAnnual) * 100
+  const breakEvenMonths = Math.max(1, Math.ceil(agentAnnual / Math.max(1, humanMonthly - agentPrice)))
+
+  return (
+    <div className="roi-calculator">
+      <div className="roi-inputs">
+        <label>
+          Salaire brut annuel
+          <input
+            type="range"
+            min={45000}
+            max={95000}
+            step={1000}
+            value={brut}
+            onChange={(e) => setBrut(Number(e.target.value))}
+          />
+          <div className="value">{brut.toLocaleString('fr-FR')} € / an</div>
+        </label>
+
+        <label>
+          Coût agent / mois
+          <input
+            type="range"
+            min={150}
+            max={600}
+            step={10}
+            value={agentPrice}
+            onChange={(e) => setAgentPrice(Number(e.target.value))}
+          />
+          <div className="value">{agentPrice} € / mois</div>
+        </label>
+      </div>
+
+      <div className="roi-results">
+        <div className="comparison">
+          <div className="col human">
+            <div className="label">Humain ({Math.round(brut / 1000)}k€ brut)</div>
+            <div className="big">
+              {Math.round(humanMonthly).toLocaleString('fr-FR')} €<span>/mois</span>
+            </div>
+            <div className="small">{Math.round(humanAnnual).toLocaleString('fr-FR')} € / an</div>
+            <ul>
+              <li>+42% charges patronales</li>
+              <li>+{totalAbsenceDays} jours d’absence/an</li>
+              <li>Recrutement + management</li>
+            </ul>
+          </div>
+
+          <div className="col agent">
+            <div className="label">Agent IA</div>
+            <div className="big">
+              {agentPrice} €<span>/mois</span>
+            </div>
+            <div className="small">{agentAnnual.toLocaleString('fr-FR')} € / an</div>
+            <ul>
+              <li>0 charge sociale</li>
+              <li>0 jour de congé</li>
+              <li>24/7 • scalabilité</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="savings">
+          <div>Économie annuelle</div>
+          <strong>{Math.round(savingsAnnual).toLocaleString('fr-FR')} €</strong>
+          <span className="pct">−{Math.round(savingsPercent)} %</span>
+          <div className="break">Rentable dès le mois {breakEvenMonths}</div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 const agents = [
   { name: 'Édouard', role: 'Agent Sales', signal: 'Prospection, relances, CRM, comptes cibles', color: '#828fff' },
@@ -79,10 +173,16 @@ function App() {
       <section id="finance" className="section finance-section">
         <div className="section-heading narrow">
           <div className="eyebrow">Financial leverage</div>
-          <h2>Le meilleur recrutement est parfois celui que tu n’ajoutes pas à la masse salariale.</h2>
-          <p className="section-copy">Un agent Hermes n’a pas besoin de contrat de travail, de congés, d’arrêt maladie ou d’onboarding de trois mois. Il prend les tâches récurrentes et libère les humains pour la décision, la relation et la stratégie.</p>
+          <h2>Combien coûte vraiment un poste vs un agent ?</h2>
+          <p className="section-copy">
+            Exemple concret : un poste à 60 000 € brut/an (≈ 5 000 €/mois) vs un agent à 300 €/mois. 
+            Avec charges patronales, congés, arrêts maladie et disponibilité, le vrai coût humain est souvent 2× le brut.
+          </p>
         </div>
-        <div className="finance-grid">
+
+        <RoiCalculator />
+
+        <div className="finance-grid" style={{ marginTop: 48 }}>
           {financialCards.map(([label, value, text]) => (
             <article className="finance-card" key={label}>
               <span>{label}</span>

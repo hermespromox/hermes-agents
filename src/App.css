@@ -141,3 +141,126 @@ details { padding: 20px; } summary { cursor: pointer; font-weight: 590; color: #
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
 }
+
+.roi-calculator {
+  background: rgba(255,255,255,.02);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 32px;
+  margin-top: 32px;
+}
+
+.roi-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.roi-inputs label {
+  display: grid;
+  gap: 10px;
+  font-size: 13px;
+  color: #d0d6e0;
+  font-weight: 510;
+}
+
+.roi-inputs input[type="range"] {
+  width: 100%;
+  accent-color: #828fff;
+}
+
+.roi-inputs .value {
+  font-size: 17px;
+  font-weight: 590;
+  color: #f7f8f8;
+  margin-top: 2px;
+}
+
+.roi-results {
+  display: grid;
+  gap: 32px;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.col {
+  background: rgba(255,255,255,.025);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 24px 26px;
+}
+
+.col.human { border-color: rgba(239,68,68,.35); }
+.col.agent { border-color: rgba(16,185,129,.35); }
+
+.col .label {
+  font-size: 13px;
+  color: #d0d6e0;
+  font-weight: 510;
+}
+
+.col .big {
+  font-size: 42px;
+  font-weight: 510;
+  letter-spacing: -0.04em;
+  margin: 14px 0 6px;
+  line-height: 1;
+}
+
+.col .big span {
+  font-size: 15px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.col .small {
+  color: var(--muted-2);
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.col ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #c5ccd8;
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.savings {
+  background: linear-gradient(180deg, rgba(16,185,129,.12), rgba(16,185,129,.02));
+  border: 1px solid rgba(16,185,129,.3);
+  border-radius: 18px;
+  padding: 26px 30px;
+  text-align: center;
+}
+
+.savings strong {
+  display: block;
+  font-size: 46px;
+  line-height: 1;
+  margin: 8px 0 6px;
+  letter-spacing: -0.05em;
+}
+
+.savings .pct {
+  color: #10b981;
+  font-weight: 590;
+  font-size: 15px;
+}
+
+.savings .break {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #8a8f98;
+}
+
+@media (max-width: 900px) {
+  .roi-inputs { grid-template-columns: 1fr; }
+  .comparison { grid-template-columns: 1fr; }
+}
